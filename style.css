@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos base y variables */
+:root {
+    --cream: #F5F0E8;
+    --beige: #E5DED3;
+    --coffee: #8B7355;
+    --mocha: #6F4E37;
+    --sand: #CEC5B7;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Transiciones suaves */
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efectos hover personalizados */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Estilos del contador */
+.countdown-item {
+    transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: scale(1.05);
+}
+
+/* Efectos de fondo parallax */
+.bg-fixed {
+    background-attachment: fixed;
+}
+
+/* Efectos de desenfoque */
+.backdrop-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Mejoras en dispositivos móviles */
+@media (max-width: 768px) {
+    .bg-fixed {
+        background-attachment: scroll;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+    }
+}
+
+/* Estilos para el formulario */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2);
+}
+
+/* Mejoras en la accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in {
+        animation: none;
+    }
+
+    .transition-all,
+    .hover-lift,
+    .countdown-item {
+        transition: none;
+    }
+}
+
+/* Estilos de impresión */
+@media print {
+    .bg-fixed {
+        background-image: none !important;
+    }
+
+    .countdown,
+    .rsvp-form {
+        display: none;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    .text-coffee,
+    .text-mocha {
+        color: black;
+    }
+}
+
+
+
+
+
+.location-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.location-button {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    /* Bordes redondeados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    /* Texto en mayúsculas */
+}
+
+.google-maps {
+    background-color: #4285F4;
+    /* Color de Google Maps */
+}
+
+.google-maps:hover {
+    background-color: #3367D6;
+    /* Hover para Google Maps */
+}
+
+.waze {
+    background-color: #5C2D91;
+    /* Color de Waze */
+}
+
+.waze:hover {
+    background-color: #4A1F73;
+    /* Hover para Waze */
+}
+
+.location-button:focus {
+    outline: none;
+}
+
+.location-button:active {
+    transform: translateY(2px);
+    /* Efecto de presionar el botón */
+}
